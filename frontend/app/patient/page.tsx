@@ -1,4 +1,4 @@
-import PatientSidebar from "./components/patient-sidebar";
+import PatientSidebar from "../../components/patient-sidebar";
 
 export default function PatientPage() {
   return (
