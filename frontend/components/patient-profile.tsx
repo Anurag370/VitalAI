@@ -40,7 +40,7 @@ export default function PatientProfile() {
         <div className="mt-7 flex items-center gap-6 rounded-xl bg-slate-50 p-5">
           <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-sm">
             <Image
-              src="/anurag-profile.jpg"
+              src="/ptdummy.jpg"
               alt="Anurag Hom Roy"
               fill
               className="object-cover"
@@ -49,7 +49,7 @@ export default function PatientProfile() {
 
           <div>
             <h2 className="text-[21px] font-semibold text-slate-900">
-              Anurag Hom Roy
+              Dhrubojyoti Roy
             </h2>
 
             <p className="mt-1 text-[11px] text-slate-500">

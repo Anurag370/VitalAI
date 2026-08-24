@@ -14,8 +14,8 @@ export default function UpcomingAppointment() {
       <div className="mt-7 flex items-center gap-4">
        <div className="h-12 w-12 overflow-hidden rounded-full">
   <Image
-    src="/anurag-profile.jpg"
-    alt="Dr. Anurag Hom Roy"
+    src="/drdummy.jpg"
+    alt="Dr. Antony Smith"
     width={48}
     height={48}
     className="h-full w-full object-cover"
@@ -24,11 +24,11 @@ export default function UpcomingAppointment() {
 
         <div>
           <p className="text-[13px] font-semibold text-slate-900">
-            Dr. Anurag Hom Roy
+            Dr. Antony Smith
           </p>
 
           <p className="mt-1 text-[11px] text-slate-500">
-            Sexologist
+            Psychologist
           </p>
         </div>
       </div>
