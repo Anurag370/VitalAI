@@ -73,7 +73,7 @@ export default function PatientSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex h-screen w-[260px] shrink-0 flex-col border-r border-slate-200 bg-white">
+    <aside className="sticky top-0 flex h-screen w-[260px] shrink-0 flex-col border-r border-slate-200 bg-white">
       {/* Logo */}
       <div className="flex h-[72px] items-center gap-3 border-b border-slate-100 px-6">
         <div className="grid grid-cols-2 gap-1">

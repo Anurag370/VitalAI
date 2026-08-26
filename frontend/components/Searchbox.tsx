@@ -4,9 +4,8 @@ const Searchbox = () => {
   return (
     <div className="flex items-center justify-between w-full px-6 py-3 bg-white border-b border-gray-100">
       {/* Search Box */}
-      <div className="flex items-center w-full max-w-md px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus-within:border-purple-400 focus-within:ring-2 focus-within:ring-purple-100 transition">
+      <div className="flex items-center w-full max-w-md px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus-within:border-gray-700 focus-within:ring-2 focus-within:ring-purple-100 transition">
         <Search size={20} className="text-gray-400" />
-
         <input
           type="text"
           placeholder="Search patients, doctors..."
@@ -30,7 +29,7 @@ const Searchbox = () => {
               Anurag Hom Roy
             </p>
             <p className="text-xs text-gray-400">
-              Patient
+              Sexiologist
             </p>
           </div>
         </div>
