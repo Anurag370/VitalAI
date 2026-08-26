@@ -16,7 +16,7 @@ export default function Home() {
 
         <div className="flex gap-6">
           <Link
-            href="/doctor/dashboard"
+            href="/doctor"
             className="flex h-40 w-52 flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-purple-300 hover:shadow-md"
           >
             <Stethoscope className="h-8 w-8 text-purple-600" />
