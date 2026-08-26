@@ -12,19 +12,45 @@ import {
   Users,
   UserPlus,
   ClipboardCheck,
-  Clock,
   Stethoscope,
 } from "lucide-react";
+import Link from "next/link";
 
 const sidebarItems = [
-  { name: "Dashboard", icon: Home, active: true },
-  { name: "Patients", icon: Users },
-  { name: "Field Visits", icon: MapPin },
-  { name: "Schedule", icon: CalendarDays },
-  { name: "Medical Reports", icon: FileText },
-  { name: "Data Collection", icon: ClipboardList },
-  { name: "Notifications", icon: Bell },
-  { name: "Settings", icon: Settings },
+  {
+    name: "Dashboard",
+    icon: Home,
+    href: "/healthworker",
+  },
+  {
+    name: "Patients",
+    icon: Users,
+    href: "/healthworker/patients",
+  },
+  {
+    name: "Field Visits",
+    icon: MapPin,
+  },
+  {
+    name: "Schedule",
+    icon: CalendarDays,
+  },
+  {
+    name: "Medical Reports",
+    icon: FileText,
+  },
+  {
+    name: "Data Collection",
+    icon: ClipboardList,
+  },
+  {
+    name: "Notifications",
+    icon: Bell,
+  },
+  {
+    name: "Settings",
+    icon: Settings,
+  },
 ];
 
 const fieldVisits = [
@@ -80,10 +106,10 @@ const recentPatients = [
 export default function HealthWorkerDashboard() {
   return (
     <main className="flex min-h-screen bg-[#fffaf5] text-slate-800">
-      
+
       {/* SIDEBAR */}
       <aside className="flex min-h-screen w-[260px] shrink-0 flex-col border-r border-orange-100 bg-white">
-        
+
         {/* Logo */}
         <div className="flex h-[72px] items-center gap-3 border-b border-orange-100 px-6">
           <div className="grid grid-cols-2 gap-1">
@@ -103,14 +129,27 @@ export default function HealthWorkerDashboard() {
           {sidebarItems.map((item) => {
             const Icon = item.icon;
 
+            if (item.href) {
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`flex w-full items-center gap-4 rounded-xl px-4 py-3 text-left text-[15px] transition ${
+                    item.name === "Dashboard"
+                      ? "bg-orange-50 font-medium text-orange-600"
+                      : "text-slate-600 hover:bg-orange-50 hover:text-orange-600"
+                  }`}
+                >
+                  <Icon size={19} />
+                  <span>{item.name}</span>
+                </Link>
+              );
+            }
+
             return (
               <button
                 key={item.name}
-                className={`flex w-full items-center gap-4 rounded-xl px-4 py-3 text-left text-[15px] transition ${
-                  item.active
-                    ? "bg-orange-50 font-medium text-orange-600"
-                    : "text-slate-600 hover:bg-orange-50 hover:text-orange-600"
-                }`}
+                className="flex w-full items-center gap-4 rounded-xl px-4 py-3 text-left text-[15px] text-slate-600 transition hover:bg-orange-50 hover:text-orange-600"
               >
                 <Icon size={19} />
                 <span>{item.name}</span>
@@ -130,11 +169,11 @@ export default function HealthWorkerDashboard() {
 
       {/* MAIN CONTENT */}
       <section className="min-w-0 flex-1 p-8">
-        
+
         {/* Header */}
         <div className="mb-7">
           <h1 className="text-2xl font-bold text-slate-800">
-           Health Worker Dashboard
+            Health Worker Dashboard
           </h1>
 
           <p className="mt-1 text-sm text-slate-500">
@@ -144,7 +183,7 @@ export default function HealthWorkerDashboard() {
 
         {/* TOP STATS */}
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
-          
+
           <div className="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
             <div className="flex items-center gap-4">
               <div className="rounded-xl bg-orange-50 p-3 text-orange-500">
@@ -209,7 +248,7 @@ export default function HealthWorkerDashboard() {
 
         {/* MAIN GRID */}
         <div className="mt-6 grid grid-cols-1 gap-5 xl:grid-cols-3">
-          
+
           {/* TODAY'S FIELD VISITS */}
           <div className="rounded-2xl border border-orange-100 bg-white p-6 shadow-sm">
             <h2 className="mb-5 text-lg font-semibold">
@@ -287,22 +326,25 @@ export default function HealthWorkerDashboard() {
               ))}
             </div>
 
-            <button className="mt-5 w-full border-t border-orange-100 pt-4 text-sm font-medium text-orange-600 hover:text-orange-700">
+            {/* UPDATED LINK */}
+            <Link
+              href="/healthworker/patients"
+              className="mt-5 block w-full border-t border-orange-100 pt-4 text-center text-sm font-medium text-orange-600 transition hover:text-orange-700"
+            >
               View All Patients
-            </button>
+            </Link>
           </div>
 
           {/* RURAL DATA OVERVIEW */}
           <div className="rounded-2xl border border-orange-100 bg-white shadow-sm">
-            
+
             <div className="p-6">
               <h2 className="text-lg font-semibold">
                 Rural Data Overview
               </h2>
 
               <div className="mt-6 flex items-center gap-6">
-                
-                {/* Circle */}
+
                 <div className="relative flex h-32 w-32 items-center justify-center rounded-full border-[14px] border-orange-200 border-r-orange-500 border-t-orange-400">
                   <div className="text-center">
                     <p className="text-2xl font-bold">248</p>
@@ -348,9 +390,7 @@ export default function HealthWorkerDashboard() {
                     <div className="h-1.5 overflow-hidden rounded-full bg-orange-100">
                       <div
                         className="h-full rounded-full bg-orange-500"
-                        style={{
-                          width: percentage,
-                        }}
+                        style={{ width: percentage }}
                       />
                     </div>
                   </div>
@@ -367,13 +407,17 @@ export default function HealthWorkerDashboard() {
           </h2>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-            
-            <button className="flex items-center gap-3 rounded-xl border border-orange-100 p-4 text-left transition hover:bg-orange-50">
+
+            {/* UPDATED ADD PATIENT */}
+            <Link
+              href="/healthworker/patients"
+              className="flex items-center gap-3 rounded-xl border border-orange-100 p-4 text-left transition hover:bg-orange-50"
+            >
               <UserPlus className="text-orange-500" size={20} />
               <span className="text-sm font-medium">
                 Add Patient
               </span>
-            </button>
+            </Link>
 
             <button className="flex items-center gap-3 rounded-xl border border-orange-100 p-4 text-left transition hover:bg-orange-50">
               <ClipboardList className="text-orange-500" size={20} />
