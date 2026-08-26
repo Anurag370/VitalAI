@@ -15,6 +15,8 @@ import {
   Clock,
   Stethoscope,
 } from "lucide-react";
+ import NavBar from "@/components/NavBar";
+
 
 const sidebarItems = [
   { name: "Dashboard", icon: Home, active: true },
@@ -130,7 +132,7 @@ export default function HealthWorkerDashboard() {
 
       {/* MAIN CONTENT */}
       <section className="min-w-0 flex-1 p-8">
-        
+        <NavBar />
         {/* Header */}
         <div className="mb-7">
           <h1 className="text-2xl font-bold text-slate-800">
