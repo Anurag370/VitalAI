@@ -29,7 +29,7 @@ const Searchbox = () => {
               Anurag Hom Roy
             </p>
             <p className="text-xs text-gray-400">
-              Sexiologist
+              -----------------------------------
             </p>
           </div>
         </div>

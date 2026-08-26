@@ -1,33 +1,15 @@
 "use client";
 
 import {
-  Bell,
   CalendarDays,
-  ClipboardList,
-  FileText,
-  Home,
-  LogOut,
-  MapPin,
-  Settings,
-  Users,
-  UserPlus,
   ClipboardCheck,
-  Clock,
+  ClipboardList,
+  MapPin,
   Stethoscope,
+  UserPlus,
+  Users,
 } from "lucide-react";
- import NavBar from "@/components/NavBar";
 
-
-const sidebarItems = [
-  { name: "Dashboard", icon: Home, active: true },
-  { name: "Patients", icon: Users },
-  { name: "Field Visits", icon: MapPin },
-  { name: "Schedule", icon: CalendarDays },
-  { name: "Medical Reports", icon: FileText },
-  { name: "Data Collection", icon: ClipboardList },
-  { name: "Notifications", icon: Bell },
-  { name: "Settings", icon: Settings },
-];
 
 const fieldVisits = [
   {
@@ -81,71 +63,20 @@ const recentPatients = [
 
 export default function HealthWorkerDashboard() {
   return (
-    <main className="flex min-h-screen bg-[#fffaf5] text-slate-800">
-      
-      {/* SIDEBAR */}
-      <aside className="flex min-h-screen w-[260px] shrink-0 flex-col border-r border-orange-100 bg-white">
-        
-        {/* Logo */}
-        <div className="flex h-[72px] items-center gap-3 border-b border-orange-100 px-6">
-          <div className="grid grid-cols-2 gap-1">
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-          </div>
+    <div>
+      {/* Header */}
+      <div className="mb-7">
+        <h1 className="text-2xl font-bold text-slate-800">
+         Health Worker Dashboard
+        </h1>
 
-          <h1 className="text-xl font-semibold text-slate-800">
-            HealthAI
-          </h1>
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex-1 space-y-2 px-4 py-6">
-          {sidebarItems.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <button
-                key={item.name}
-                className={`flex w-full items-center gap-4 rounded-xl px-4 py-3 text-left text-[15px] transition ${
-                  item.active
-                    ? "bg-orange-50 font-medium text-orange-600"
-                    : "text-slate-600 hover:bg-orange-50 hover:text-orange-600"
-                }`}
-              >
-                <Icon size={19} />
-                <span>{item.name}</span>
-              </button>
-            );
-          })}
-        </nav>
-
-        {/* Logout */}
-        <div className="border-t border-orange-100 p-4">
-          <button className="flex w-full items-center gap-4 rounded-xl px-4 py-3 text-[15px] text-red-500 transition hover:bg-red-50">
-            <LogOut size={19} />
-            Logout
-          </button>
-        </div>
-      </aside>
-
-      {/* MAIN CONTENT */}
-      <section className="min-w-0 flex-1 p-8">
-        <NavBar />
-        {/* Header */}
-        <div className="mb-7">
-          <h1 className="text-2xl font-bold text-slate-800">
-           Health Worker Dashboard
-          </h1>
-
-          <p className="mt-1 text-sm text-slate-500">
-            Welcome back, Anurag Hom Roy
-          </p>
-        </div>
+        <p className="mt-1 text-sm text-slate-500">
+          Welcome back, Anurag Hom Roy
+        </p>
+      </div>
 
         {/* TOP STATS */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4 text-slate-500">
           
           <div className="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm">
             <div className="flex items-center gap-4">
@@ -210,7 +141,7 @@ export default function HealthWorkerDashboard() {
         </div>
 
         {/* MAIN GRID */}
-        <div className="mt-6 grid grid-cols-1 gap-5 xl:grid-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-5 xl:grid-cols-3 text-slate-500">
           
           {/* TODAY'S FIELD VISITS */}
           <div className="rounded-2xl border border-orange-100 bg-white p-6 shadow-sm">
@@ -363,7 +294,7 @@ export default function HealthWorkerDashboard() {
         </div>
 
         {/* QUICK ACTIONS */}
-        <div className="mt-6 rounded-2xl border border-orange-100 bg-white p-6 shadow-sm">
+        <div className="mt-6 rounded-2xl border border-orange-100 bg-white p-6 shadow-sm text-slate-500">
           <h2 className="mb-5 text-lg font-semibold">
             Quick Actions
           </h2>
@@ -400,7 +331,6 @@ export default function HealthWorkerDashboard() {
 
           </div>
         </div>
-      </section>
-    </main>
+    </div>
   );
 }
