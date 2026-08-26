@@ -32,7 +32,7 @@ export default function Home() {
       if (role === "patient") {
         router.push("/patient");
       } else if (role === "doctor") {
-        router.push("/doctor/dashboard");
+        router.push("/doctor");
       } else if (role === "healthworker") {
         router.push("/healthworker");
       } else if (role === "management") {
