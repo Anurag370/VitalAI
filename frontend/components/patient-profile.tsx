@@ -49,7 +49,7 @@ export default function PatientProfile() {
 
           <div>
             <h2 className="text-[21px] font-semibold text-slate-900">
-              Dhrubojyoti Roy
+              Anurag Hom Roy
             </h2>
 
             <p className="mt-1 text-[11px] text-slate-500">

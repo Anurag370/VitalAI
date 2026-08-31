@@ -3,22 +3,11 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import {
-  Activity,
-  AlertTriangle,
-  CalendarDays,
-  ClipboardList,
-  FileText,
-  HeartPulse,
-  Home,
-  LogOut,
   MapPin,
-  Menu,
   Phone,
   Plus,
   Search,
-  Settings,
   Stethoscope,
-  User,
   Users,
   X,
   Droplets,
@@ -120,43 +109,6 @@ const initialPatients: Patient[] = [
   },
 ];
 
-const menuItems = [
-  {
-    name: "Dashboard",
-    href: "/healthworker",
-    icon: Home,
-  },
-  {
-    name: "Patients",
-    href: "/healthworker/patients",
-    icon: Users,
-  },
-  {
-    name: "Appointments",
-    icon: CalendarDays,
-  },
-  {
-    name: "Schedule",
-    icon: CalendarDays,
-  },
-  {
-    name: "Medical Reports",
-    icon: ClipboardList,
-  },
-  {
-    name: "Prescriptions",
-    icon: FileText,
-  },
-  {
-    name: "Notifications",
-    icon: Activity,
-  },
-  {
-    name: "Settings",
-    icon: Settings,
-  },
-];
-
 export default function HealthWorkerPatientsPage() {
   const [patients, setPatients] = useState<Patient[]>(initialPatients);
   const [activeFilter, setActiveFilter] = useState("All");
@@ -255,71 +207,8 @@ export default function HealthWorkerPatientsPage() {
   };
 
   return (
-    <main className="flex min-h-screen bg-[#f8fafc]">
-      {/* Sidebar */}
-      <aside className="fixed left-0 top-0 flex h-screen w-[260px] flex-col border-r border-orange-100 bg-white">
-        {/* Logo */}
-        <div className="flex h-[72px] items-center gap-3 border-b border-orange-100 px-6">
-          <div className="grid grid-cols-2 gap-1">
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-          </div>
-
-          <h1 className="text-[20px] font-semibold text-slate-800">
-            HealthAI
-          </h1>
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex-1 space-y-2 px-4 py-5">
-          {menuItems.map((item) => {
-            const Icon = item.icon;
-
-            if (item.href) {
-              const isActive = item.href === "/healthworker/patients";
-
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`flex items-center gap-4 rounded-xl px-4 py-3 text-[15px] transition ${
-                    isActive
-                      ? "bg-orange-50 text-orange-600"
-                      : "text-slate-600 hover:bg-orange-50 hover:text-orange-600"
-                  }`}
-                >
-                  <Icon size={19} />
-                  <span>{item.name}</span>
-                </Link>
-              );
-            }
-
-            return (
-              <button
-                key={item.name}
-                type="button"
-                className="flex w-full items-center gap-4 rounded-xl px-4 py-3 text-left text-[15px] text-slate-600 transition hover:bg-orange-50 hover:text-orange-600"
-              >
-                <Icon size={19} />
-                <span>{item.name}</span>
-              </button>
-            );
-          })}
-        </nav>
-
-        {/* Logout */}
-        <div className="border-t border-orange-100 p-4">
-          <button className="flex w-full items-center gap-4 rounded-xl px-4 py-3 text-[15px] text-red-500 transition hover:bg-red-50">
-            <LogOut size={19} />
-            <span>Logout</span>
-          </button>
-        </div>
-      </aside>
-
-      {/* Main Content */}
-      <section className="ml-[260px] min-h-screen flex-1 p-8">
+    <div>
+      <section>
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div>
@@ -903,6 +792,6 @@ export default function HealthWorkerPatientsPage() {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 }

@@ -1,10 +1,10 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function UnderProgressPage() {
+function UnderProgressContent() {
   const searchParams = useSearchParams();
-
   const section = searchParams.get("section") || "Section";
 
   return (
@@ -19,5 +19,13 @@ export default function UnderProgressPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function UnderProgressPage() {
+  return (
+    <Suspense fallback={<div className="flex min-h-[calc(100vh-48px)] items-center justify-center"><span className="text-slate-400">Loading...</span></div>}>
+      <UnderProgressContent />
+    </Suspense>
   );
 }

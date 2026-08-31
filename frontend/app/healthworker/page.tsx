@@ -30,26 +30,32 @@ const sidebarItems = [
   {
     name: "Field Visits",
     icon: MapPin,
+    href: "/healthworker/under-progress?section=Field%20Visits",
   },
   {
     name: "Schedule",
     icon: CalendarDays,
+    href: "/healthworker/under-progress?section=Schedule",
   },
   {
     name: "Medical Reports",
     icon: FileText,
+    href: "/healthworker/under-progress?section=Medical%20Reports",
   },
   {
     name: "Data Collection",
     icon: ClipboardList,
+    href: "/healthworker/under-progress?section=Data%20Collection",
   },
   {
     name: "Notifications",
     icon: Bell,
+    href: "/healthworker/under-progress?section=Notifications",
   },
   {
     name: "Settings",
     icon: Settings,
+    href: "/healthworker/under-progress?section=Settings",
   },
 ];
 
@@ -105,70 +111,8 @@ const recentPatients = [
 
 export default function HealthWorkerDashboard() {
   return (
-    <main className="flex min-h-screen bg-[#fffaf5] text-slate-800">
-
-      {/* SIDEBAR */}
-      <aside className="flex min-h-screen w-[260px] shrink-0 flex-col border-r border-orange-100 bg-white">
-
-        {/* Logo */}
-        <div className="flex h-[72px] items-center gap-3 border-b border-orange-100 px-6">
-          <div className="grid grid-cols-2 gap-1">
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-            <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-          </div>
-
-          <h1 className="text-xl font-semibold text-slate-800">
-            HealthAI
-          </h1>
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex-1 space-y-2 px-4 py-6">
-          {sidebarItems.map((item) => {
-            const Icon = item.icon;
-
-            if (item.href) {
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`flex w-full items-center gap-4 rounded-xl px-4 py-3 text-left text-[15px] transition ${
-                    item.name === "Dashboard"
-                      ? "bg-orange-50 font-medium text-orange-600"
-                      : "text-slate-600 hover:bg-orange-50 hover:text-orange-600"
-                  }`}
-                >
-                  <Icon size={19} />
-                  <span>{item.name}</span>
-                </Link>
-              );
-            }
-
-            return (
-              <button
-                key={item.name}
-                className="flex w-full items-center gap-4 rounded-xl px-4 py-3 text-left text-[15px] text-slate-600 transition hover:bg-orange-50 hover:text-orange-600"
-              >
-                <Icon size={19} />
-                <span>{item.name}</span>
-              </button>
-            );
-          })}
-        </nav>
-
-        {/* Logout */}
-        <div className="border-t border-orange-100 p-4">
-          <button className="flex w-full items-center gap-4 rounded-xl px-4 py-3 text-[15px] text-red-500 transition hover:bg-red-50">
-            <LogOut size={19} />
-            Logout
-          </button>
-        </div>
-      </aside>
-
-      {/* MAIN CONTENT */}
-      <section className="min-w-0 flex-1 p-8">
+    <div>
+      <section>
 
         {/* Header */}
         <div className="mb-7">
@@ -192,7 +136,7 @@ export default function HealthWorkerDashboard() {
 
               <div>
                 <p className="text-sm text-slate-500">
-                  Today's Field Visits
+                  Today&apos;s Field Visits
                 </p>
                 <h2 className="mt-1 text-2xl font-bold">8</h2>
               </div>
@@ -252,7 +196,7 @@ export default function HealthWorkerDashboard() {
           {/* TODAY'S FIELD VISITS */}
           <div className="rounded-2xl border border-orange-100 bg-white p-6 shadow-sm">
             <h2 className="mb-5 text-lg font-semibold">
-              Today's Field Visits
+              Today&apos;s Field Visits
             </h2>
 
             <div className="space-y-4">
@@ -326,7 +270,6 @@ export default function HealthWorkerDashboard() {
               ))}
             </div>
 
-            {/* UPDATED LINK */}
             <Link
               href="/healthworker/patients"
               className="mt-5 block w-full border-t border-orange-100 pt-4 text-center text-sm font-medium text-orange-600 transition hover:text-orange-700"
@@ -408,7 +351,6 @@ export default function HealthWorkerDashboard() {
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
 
-            {/* UPDATED ADD PATIENT */}
             <Link
               href="/healthworker/patients"
               className="flex items-center gap-3 rounded-xl border border-orange-100 p-4 text-left transition hover:bg-orange-50"
@@ -443,6 +385,6 @@ export default function HealthWorkerDashboard() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

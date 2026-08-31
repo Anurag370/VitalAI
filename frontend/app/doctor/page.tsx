@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Users,
   CalendarDays,
@@ -280,25 +278,25 @@ export default function Dashboard() {
                 <Condition
                   name="Hypertension"
                   percentage="20%"
-                  width="80%"
+                  width="20%"
                 />
 
                 <Condition
                   name="Diabetes"
                   percentage="21%"
-                  width="65%"
+                  width="21%"
                 />
 
                 <Condition
                   name="Asthma"
                   percentage="14%"
-                  width="50%"
+                  width="14%"
                 />
 
                 <Condition
                   name="Others"
                   percentage="37%"
-                  width="35%"
+                  width="37%"
                 />
 
               </div>

@@ -52,7 +52,7 @@ export default function Home() {
           </div>
 
           <h1 className="mt-4 text-2xl font-semibold text-slate-900">
-            Welcome to HealthAI
+            Welcome to VitalAI
           </h1>
 
           <p className="mt-2 text-sm text-slate-600">

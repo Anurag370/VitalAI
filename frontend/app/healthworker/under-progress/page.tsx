@@ -3,7 +3,7 @@
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-function DoctorUnderProgressContent() {
+function UnderProgressContent() {
   const searchParams = useSearchParams();
   const section = searchParams.get("section") || "Section";
 
@@ -22,10 +22,10 @@ function DoctorUnderProgressContent() {
   );
 }
 
-export default function DoctorUnderProgressPage() {
+export default function HealthWorkerUnderProgressPage() {
   return (
     <Suspense fallback={<div className="flex min-h-[calc(100vh-48px)] items-center justify-center"><span className="text-slate-400">Loading...</span></div>}>
-      <DoctorUnderProgressContent />
+      <UnderProgressContent />
     </Suspense>
   );
 }

@@ -6,17 +6,17 @@ export default function HealthWorkerLayout({
   children,
 }: LayoutProps<"/healthworker">) {
   return (
-    <div className="flex min-h-screen bg-[#fffaf5]">
+    <div className="flex min-h-screen bg-slate-50">
       <Suspense
         fallback={
-          <aside className="h-screen w-[220px] shrink-0 border-r border-orange-100 bg-white" />
+          <aside className="h-screen w-[220px] shrink-0 border-r border-slate-200 bg-white" />
         }
       >
         <HealthWorkerSidebar />
       </Suspense>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-20 border-b border-orange-100 bg-white">
+        <header className="sticky top-0 z-20 border-b border-slate-100 bg-white">
           <NavBar />
         </header>
 

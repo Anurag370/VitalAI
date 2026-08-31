@@ -1,4 +1,3 @@
-import React from "react";
 import { Search, Bell, CalendarDays } from "lucide-react";
 const Searchbox = () => {
   return (
@@ -29,7 +28,7 @@ const Searchbox = () => {
               Anurag Hom Roy
             </p>
             <p className="text-xs text-gray-400">
-              -----------------------------------
+              Healthcare Provider
             </p>
           </div>
         </div>

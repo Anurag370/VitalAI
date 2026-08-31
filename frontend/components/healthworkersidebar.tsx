@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import {
   Bell,
   CalendarDays,
@@ -59,11 +59,13 @@ const navigationItems = [
 
 export default function HealthWorkerSidebar() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const section = searchParams.get("section");
 
   return (
     <aside className="sticky top-0 flex h-screen w-[220px] shrink-0 flex-col border-r border-orange-100 bg-white">
       {/* Logo */}
-      <div className="flex h-[72px] shrink-0 items-center border-b border-orange-100 px-5">
+      <Link href="/" className="flex h-[72px] shrink-0 items-center border-b border-orange-100 px-5">
         <div className="flex items-center gap-3">
           <div className="grid grid-cols-2 gap-1">
             <span className="h-2 w-2 rounded-full bg-orange-500" />
@@ -73,10 +75,10 @@ export default function HealthWorkerSidebar() {
           </div>
 
           <span className="text-lg font-semibold tracking-tight text-slate-800">
-            HealthAI
+            VitalAI
           </span>
         </div>
-      </div>
+      </Link>
 
       {/* Navigation */}
       <nav className="min-h-0 flex-1 overflow-y-auto px-3 py-4">
@@ -87,7 +89,8 @@ export default function HealthWorkerSidebar() {
             const isActive =
               item.href === "/healthworker"
                 ? pathname === "/healthworker"
-                : pathname === "/healthworker/under-progress";
+                : section !== null &&
+                  item.href.includes(`section=${encodeURIComponent(section)}`);
 
             return (
               <Link

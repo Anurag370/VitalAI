@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import {
   Activity,
   Bell,
@@ -71,11 +71,13 @@ const menuItems = [
 
 export default function PatientSidebar() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const section = searchParams.get("section");
 
   return (
     <aside className="sticky top-0 flex h-screen w-[220px] shrink-0 flex-col border-r border-slate-200 bg-white">
       {/* Logo */}
-      <div className="flex h-[72px] shrink-0 items-center border-b border-slate-100 px-5">
+      <Link href="/" className="flex h-[72px] shrink-0 items-center border-b border-slate-100 px-5">
         <div className="flex items-center gap-3">
           <div className="grid grid-cols-2 gap-1">
             <span className="h-2 w-2 rounded-full bg-teal-600" />
@@ -85,10 +87,10 @@ export default function PatientSidebar() {
           </div>
 
           <span className="text-lg font-semibold tracking-tight text-slate-800">
-            HealthAI
+            VitalAI
           </span>
         </div>
-      </div>
+      </Link>
 
       {/* Navigation */}
       <nav className="min-h-0 flex-1 overflow-y-auto px-3 py-4">
@@ -101,7 +103,8 @@ export default function PatientSidebar() {
                 ? pathname === "/patient"
                 : item.href === "/patient/profile"
                   ? pathname === "/patient/profile"
-                  : pathname === "/patient/under-progress";
+                  : section !== null &&
+                    item.href.includes(`section=${encodeURIComponent(section)}`);
 
             return (
               <Link
